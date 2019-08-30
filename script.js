@@ -2,8 +2,7 @@ $(readyNow);
 
 function readyNow() {
     $('#submitBtn').on('click', activateSubmit);
-    //submit button activation
-    //delete button activation
+    $('#employee-list').on('click', '.deleteBtn', activateDelete);
 }
 let employees = [];
 
@@ -50,47 +49,8 @@ function listOutEmployees(){
     }
 }
 
-// function listOutFriends() {
-//     $('#listFriends').empty();
-//     favFoods.forEach(function (person) {
-//         let $li = $(
-//             `<li data-cohort="Porta">
-//                 ${person.name}
-//                 <button class='getFood'>${person.favoriteMeal}</button>
-//             </li>`
-//         )// end $li
-
-//         $li.data('favoriteFood', person.favoriteFood);
-
-//         $('#listFriends').append($li)//end append
-//     })//end forEach
-
-//     $('.getFood').on('click', handleClick)
-// }//end ListOutFriendss
-
-
-
-// if (name != '') {
-//     $('#name').removeClass('red-border');
-// }
-// if (meal != '') {
-//     $('#meal').removeClass('red-border');
-// }
-// if (food != '') {
-//     $('#food').removeClass('red-border');
-// }
-// if (name == '') {
-//     $('#name').addClass('red-border');
-//     alert('Please fill out the name input');
-// } else if (meal == '') {
-//     $('#meal').addClass('red-border');
-//     alert('Please fill out the meal input');
-// } else if (food == '') {
-//     $('#food').addClass('red-border');
-//     alert('Please fill out the food input');
-// } else {
-
-
- 
-
-// }
+function activateDelete(){
+    let $thisRow = $(this).parent().parent();
+    $thisRow.remove();
+    
+}
