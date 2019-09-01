@@ -34,14 +34,17 @@ function activateSubmit(){
 function listOutEmployees(){
     $('#employee-list').empty();
     let totalMonthly = 0;
+
     employees.forEach(function (employee){
-        let $newRow = `<tr><td>`+employee.firstName+`</td><td>`+employee.lastName+`</td><td>`+employee.id+`</td><td>`+employee.title+`</td><td>$`+employee.salary+`</td><td><button class="deleteBtn">Delete</button></td></tr>`;
+        let $newRow = `<tr><td>`+employee.firstName+`</td><td>`+employee.lastName+`</td><td>`+employee.id+`</td><td>`+employee.title+`</td><td>$`+employee.salary+`</td><td><button class="deleteBtn" data-name="`+employee.firstName+`">Delete</button></td></tr>`;
         $('#employee-list').append($newRow);
         let monthly = employee.salary / 12;
         totalMonthly += monthly;
     })
+
     $('#total-monthly').empty();
     $('#total-monthly').append('Total Monthly: $'+totalMonthly);
+
     if (totalMonthly > 20000){
         $('#total-monthly').addClass('red');
     } else {
@@ -50,7 +53,13 @@ function listOutEmployees(){
 }
 
 function activateDelete(){
-    let $thisRow = $(this).parent().parent();
-    $thisRow.remove();
+    let $name = $(this).data('name');
+    console.log($name);
+    for (let i=0; i<employees.length; i++){
+        if ($name == employees[i].firstName){
+            employees.splice(i, 1);
+        }
+    }
+    listOutEmployees();
     
 }
