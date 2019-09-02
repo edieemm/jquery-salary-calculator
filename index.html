@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Salary Calculatora</title>
+    <title>Salary Calculator</title>
     <script src="jquery.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -13,33 +13,38 @@
     <header>
         <h1>Salary Calculator</h1>
     </header>
-    <div class="add-employee">
-        <h2>Add Employee</h2>
-        <input type="text" id="first-name-input" placeholder="First Name">
-        <input type="text" id="last-name-input" placeholder="Last Name">
-        <input type="number" id="id-input" placeholder="ID">
-        <input type="text" id="title-input" placeholder="Title">
-        <input type="number" id="salary-input" placeholder="Annual Salary"><br/>
-        <button id="submitBtn">Submit</button>
+    <div id="calculator-container">
+        <div class="add-employee">
+            <h2>Add Employee</h2>
+            <div class="input-container">
+                <input type="text" id="first-name-input" placeholder="First Name">
+                <input type="text" id="last-name-input" placeholder="Last Name">
+                <input type="number" id="id-input" placeholder="ID">
+                <input type="text" id="title-input" placeholder="Title">
+                <input type="number" id="salary-input" placeholder="Annual Salary">
+            </div>
+            <div class="submit-button-container">
+                <button id="submitBtn">Submit</button>
+            </div>
+        </div>
+        <div class="employee-table-container">
+            <h2>Employees</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Annual Salary</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="employee-list">
+                </tbody>
+            </table>
+            <div class="total-container"><h3 id="total-monthly"></h3></div>
+        </div>
     </div>
-    <div class="employee-table-container">
-        <h2>Employees</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Annual Salary</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="employee-list">
-            </tbody>
-        </table>
-        <h3 id="total-monthly"></h3>
-    </div>
-    
 </body>
 </html>
